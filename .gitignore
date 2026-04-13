@@ -1,0 +1,7 @@
+.DS_Store
+*.lock
+.~lock.*
+*.MOV
+*.MP4
+*.mp4
+website-assets/videos/

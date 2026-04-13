@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ration Veda — Hand-Pounded Premium Spices | Region-Sourced from India</title>
+<meta name="description" content="Discover authentic hand-pounded spices crafted using the ancient Imam-Dasta technique. Guntur chilli, Rajasthani coriander, Rajapuri turmeric & more. Pure. Unmatchable.">
+<meta name="keywords" content="hand pounded spices, imam dasta, premium spices India, authentic spices, Guntur chilli, Rajasthani coriander, Rajapuri turmeric, Punjabi garam masala, organic spices">
+<meta property="og:title" content="Ration Veda — Hand-Pounded Premium Spices">
+<meta property="og:description" content="Spices crafted using ancient Imam-Dasta technique. Pure. Authentic. Unmatchable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rationveda.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══ RESET & BASE ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green-deep:#1B4332;
+  --green-mid:#2D6A4F;
+  --green-soft:#40916C;
+  --green-light:#D8F3DC;
+  --green-pale:#F0FFF4;
+  --cream:#FDF8F0;
+  --cream-dark:#F5EDE0;
+  --brown:#8B6914;
+  --brown-light:#C49A2A;
+  --gold:#D4A017;
+  --red-spice:#C0392B;
+  --turmeric:#E5A100;
+  --text-dark:#1a1a1a;
+  --text-body:#3d3d3d;
+  --text-light:#6b6b6b;
+  --white:#ffffff;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:0 4px 20px rgba(0,0,0,.12);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.15);
+  --radius:12px;
+  --radius-lg:20px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:var(--text-body);background:var(--cream);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--green-deep);line-height:1.3}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ═══ NAVBAR ═══ */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(253,248,240,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(27,67,50,.08);transition:all .3s}
+.navbar.scrolled{background:rgba(253,248,240,.98);box-shadow:var(--shadow-sm)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--green-deep);letter-spacing:1px}
+.nav-logo-sub{font-size:.65rem;color:var(--green-mid);letter-spacing:2px;text-transform:uppercase;margin-top:-4px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text-body);transition:color .3s;letter-spacing:.3px}
+.nav-links a:hover{color:var(--green-mid)}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s;border:none;text-align:center;justify-content:center}
+.btn-whatsapp{background:#25D366;color:#fff}
+.btn-whatsapp:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 4px 15px rgba(37,211,102,.4)}
+.btn-call{background:var(--green-deep);color:#fff}
+.btn-call:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 4px 15px rgba(27,67,50,.4)}
+.btn-outline{background:transparent;border:2px solid var(--green-deep);color:var(--green-deep)}
+.btn-outline:hover{background:var(--green-deep);color:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--brown-light));color:#fff}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(212,160,23,.4)}
+.btn-lg{padding:16px 36px;font-size:1rem}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;-webkit-tap-highlight-color:transparent;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.hamburger span{width:22px;height:2px;background:var(--green-deep);transition:all .3s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{position:fixed;top:70px;left:0;right:0;background:var(--cream);padding:0 24px;border-bottom:1px solid rgba(27,67,50,.1);box-shadow:var(--shadow-md);max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;display:flex;flex-direction:column;gap:12px}
+.mobile-menu.active{max-height:500px;padding:20px 24px}
+.mobile-menu a{font-size:1rem;padding:12px 0;color:var(--text-body);font-weight:500;border-bottom:1px solid rgba(27,67,50,.06)}
+.mobile-menu a:last-of-type{border-bottom:none}
+.mobile-menu .btn{width:100%;margin-top:4px}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;margin-top:70px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,67,50,.85) 0%,rgba(27,67,50,.6) 50%,rgba(27,67,50,.4) 100%);z-index:1}
+.hero-content{position:relative;z-index:2;max-width:650px;padding:60px 0 60px 0;margin-left:5%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:8px 20px;font-size:.8rem;color:var(--green-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:3.2rem;color:#fff;margin-bottom:16px;font-weight:700}
+.hero h1 span{color:var(--gold);display:block}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.85);margin-bottom:36px;line-height:1.8;max-width:520px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.15)}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
+.hero-stat .label{font-size:.75rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* ═══ TRUST BAR ═══ */
+.trust-bar{background:var(--green-deep);padding:20px 0;overflow:hidden}
+.trust-inner{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.9);font-size:.85rem;font-weight:500;letter-spacing:.5px;white-space:nowrap}
+.trust-icon{font-size:1.2rem}
+
+/* ═══ SECTION STYLES ═══ */
+.section{padding:100px 0}
+.section-alt{background:var(--white)}
+.section-green{background:var(--green-deep);color:#fff}
+.section-header{text-align:center;max-width:700px;margin:0 auto 60px}
+.section-header .overline{font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--green-soft);font-weight:600;margin-bottom:12px}
+.section-header h2{font-size:2.5rem;margin-bottom:16px}
+.section-header p{font-size:1.05rem;color:var(--text-light);line-height:1.8}
+
+/* ═══ STORY SECTION ═══ */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story-images{position:relative;height:500px}
+.story-img-main{width:75%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative;z-index:2}
+.story-img-accent{position:absolute;bottom:-30px;right:0;width:50%;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);border:4px solid var(--cream);z-index:3}
+.story-text h2{font-size:2.2rem;margin-bottom:20px}
+.story-text .highlight{color:var(--gold)}
+.story-text p{margin-bottom:16px;color:var(--text-body);line-height:1.8}
+.story-quote{border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;background:var(--cream-dark);border-radius:0 var(--radius) var(--radius) 0}
+.story-quote p{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--green-deep);margin:0}
+
+/* ═══ PROCESS SECTION ═══ */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:50px}
+.process-step{text-align:center;position:relative}
+.process-step::after{content:'';position:absolute;top:60px;right:-15px;width:30px;height:2px;background:var(--gold)}
+.process-step:last-child::after{display:none}
+.process-icon{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 20px;border:3px solid var(--green-light);box-shadow:var(--shadow-sm)}
+.process-icon img{width:100%;height:100%;object-fit:cover}
+.process-step .step-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
+.process-step h3{font-size:1.1rem;color:var(--green-deep);margin:8px 0}
+.process-step p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+.process-hero{margin-top:60px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);max-height:450px}
+.process-hero img{width:100%;height:100%;object-fit:cover}
+
+/* ═══ PRODUCTS ═══ */
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.product-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:all .4s;border:1px solid rgba(27,67,50,.06)}
+.product-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.product-img{height:260px;overflow:hidden;position:relative;background:var(--cream-dark)}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.product-card:hover .product-img img{transform:scale(1.05)}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:#fff;font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:50px;letter-spacing:.5px;text-transform:uppercase}
+.product-info{padding:24px}
+.product-origin{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--green-soft);font-weight:600;margin-bottom:6px}
+.product-name{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--green-deep);margin-bottom:8px}
+.product-desc{font-size:.85rem;color:var(--text-light);margin-bottom:16px;line-height:1.6}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--green-light)}
+.product-price{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--green-deep);font-weight:700}
+.product-price span{font-size:.8rem;color:var(--text-light);font-family:'Inter',sans-serif;font-weight:400}
+.product-btn{background:var(--green-deep);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all .3s;cursor:pointer;border:none}
+.product-btn:hover{background:#25D366;transform:scale(1.1)}
+
+/* ═══ GIFTING ═══ */
+.gifting-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.gifting-images{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gifting-images img{border-radius:var(--radius);box-shadow:var(--shadow-sm);height:220px;object-fit:cover;width:100%}
+.gifting-text h2{font-size:2.2rem;margin-bottom:16px}
+.gifting-text p{margin-bottom:16px;line-height:1.8}
+.gifting-features{display:flex;flex-direction:column;gap:14px;margin:24px 0}
+.gifting-feature{display:flex;align-items:flex-start;gap:12px}
+.gifting-feature .icon{width:24px;height:24px;background:var(--green-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:.8rem;color:var(--green-deep)}
+.gifting-feature p{font-size:.9rem;margin:0}
+
+/* ═══ IMPACT / SOURCING ═══ */
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.impact-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.impact-cards{display:flex;flex-direction:column;gap:20px}
+.impact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:24px;backdrop-filter:blur(4px)}
+.section-green .impact-card h3{color:var(--gold);font-size:1.15rem;margin-bottom:8px}
+.section-green .impact-card p{color:rgba(255,255,255,.8);font-size:.9rem;margin:0;line-height:1.7}
+
+/* ═══ EVENTS GALLERY ═══ */
+.events-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.events-gallery .ev-img{border-radius:var(--radius);overflow:hidden;height:280px;box-shadow:var(--shadow-sm);transition:all .4s}
+.events-gallery .ev-img:hover{transform:scale(1.03);box-shadow:var(--shadow-md)}
+.events-gallery .ev-img img{width:100%;height:100%;object-fit:cover}
+.events-gallery .ev-img.tall{grid-row:span 2;height:100%}
+
+/* ═══ CTA BANNER ═══ */
+.cta-banner{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);padding:80px 0;text-align:center}
+.cta-banner h2{color:#fff;font-size:2.5rem;margin-bottom:16px}
+.cta-banner p{color:rgba(255,255,255,.8);font-size:1.1rem;max-width:600px;margin:0 auto 36px;line-height:1.8}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--text-dark);color:rgba(255,255,255,.7);padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer h4{color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:16px}
+.footer p{font-size:.85rem;line-height:1.8;margin-bottom:12px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.85rem;color:rgba(255,255,255,.6);transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.footer-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);font-size:.9rem;transition:all .3s}
+.footer-social a:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;font-size:.8rem}
+
+/* ═══ FLOATING BUTTONS ═══ */
+.floating-btns{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:12px}
+.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;box-shadow:var(--shadow-md);transition:all .3s;cursor:pointer;border:none}
+.float-btn:hover{transform:scale(1.1)}
+.float-whatsapp{background:#25D366}
+.float-call{background:var(--green-deep)}
+
+/* ═══ ANIMATIONS ═══ */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-left{opacity:0;transform:translateX(-30px);transition:all .8s ease}
+.fade-left.visible{opacity:1;transform:translateX(0)}
+.fade-right{opacity:0;transform:translateX(30px);transition:all .8s ease}
+.fade-right.visible{opacity:1;transform:translateX(0)}
+
+/* ═══ RESPONSIVE ═══ */
+
+/* iPhone/Android safe areas for notch, home indicator */
+@supports(padding:max(0px)){
+  .navbar{padding-top:env(safe-area-inset-top)}
+  .footer{padding-bottom:max(30px,env(safe-area-inset-bottom))}
+  .floating-btns{bottom:max(24px,calc(env(safe-area-inset-bottom) + 12px));right:max(16px,env(safe-area-inset-right))}
+  .hero{padding-top:env(safe-area-inset-top)}
+}
+
+/* Tablet */
+@media(max-width:1024px){
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:40px}
+  .process-step::after{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+/* Mobile */
+@media(max-width:768px){
+  html{font-size:15px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-inner{height:60px}
+  .nav-logo-text{font-size:1.25rem}
+  .nav-logo-sub{font-size:.55rem}
+  .hero{min-height:100vh;min-height:100dvh;min-height:calc(var(--vh,1vh) * 100);margin-top:60px}
+  .hero-content{margin-left:0;padding:30px 20px}
+  .hero h1{font-size:2rem}
+  .hero-sub{font-size:.95rem;margin-bottom:28px}
+  .hero-badge{font-size:.7rem;padding:6px 14px;margin-bottom:16px}
+  .hero-btns{flex-direction:column;gap:10px}
+  .hero-btns .btn{width:100%;justify-content:center}
+  .hero-stats{gap:20px;flex-wrap:wrap;margin-top:32px;padding-top:24px}
+  .hero-stat .num{font-size:1.4rem}
+  .hero-stat .label{font-size:.65rem}
+  .section{padding:50px 0}
+  .container{padding:0 16px}
+  .section-header{margin-bottom:36px}
+  .section-header h2{font-size:1.8rem}
+  .section-header p{font-size:.9rem}
+  .story-grid,.gifting-grid,.impact-grid{grid-template-columns:1fr;gap:24px}
+  .story-images{height:300px}
+  .story-img-main{width:70%}
+  .story-img-accent{width:55%;bottom:-20px}
+  .story-text h2{font-size:1.7rem}
+  .story-quote{padding:16px 18px}
+  .story-quote p{font-size:1rem}
+  .process-steps{grid-template-columns:1fr 1fr;gap:20px}
+  .process-icon{width:90px;height:90px}
+  .process-step .step-num{font-size:1.5rem}
+  .process-step h3{font-size:.95rem}
+  .process-step p{font-size:.8rem}
+  .process-hero{max-height:300px;margin-top:40px}
+  .products-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .product-card{border-radius:var(--radius)}
+  .product-img{height:170px}
+  .product-info{padding:14px}
+  .product-origin{font-size:.6rem;letter-spacing:1.5px}
+  .product-name{font-size:.95rem;margin-bottom:4px}
+  .product-desc{font-size:.78rem;margin-bottom:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .product-bottom{padding-top:12px}
+  .product-price{font-size:1.15rem}
+  .product-price span{font-size:.7rem}
+  .product-btn{width:38px;height:38px}
+  .product-badge{font-size:.6rem;padding:3px 8px}
+  .gifting-text h2{font-size:1.7rem}
+  .gifting-images{grid-template-columns:1fr 1fr;gap:10px}
+  .gifting-images img{height:150px;border-radius:8px}
+  .gifting-feature p{font-size:.85rem}
+  .events-gallery{grid-template-columns:1fr 1fr;gap:10px}
+  .events-gallery .ev-img{height:180px;border-radius:8px}
+  .events-gallery .ev-img.tall{grid-row:span 1;height:180px}
+  .impact-grid{gap:30px}
+  .impact-card{padding:18px}
+  .cta-banner{padding:50px 0}
+  .cta-banner h2{font-size:1.6rem}
+  .cta-banner p{font-size:.9rem;margin-bottom:24px}
+  .cta-btns{flex-direction:column;gap:10px;padding:0 16px}
+  .cta-btns .btn{width:100%;justify-content:center}
+  .trust-inner{gap:12px;padding:0 12px;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .trust-inner::-webkit-scrollbar{display:none}
+  .trust-item{font-size:.72rem;flex-shrink:0}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .footer h4{font-size:1rem;margin-bottom:12px}
+  .floating-btns{bottom:16px;right:16px;gap:10px}
+  .float-btn{width:50px;height:50px}
+  .float-btn svg{width:24px;height:24px}
+  .mobile-menu{top:60px}
+  /* Tap targets min 44px for iOS/Android */
+  .btn{min-height:44px}
+  .product-btn{min-width:44px;min-height:44px}
+  .nav-links a,.mobile-menu a{min-height:44px;display:flex;align-items:center}
+  .footer-links a{min-height:40px;display:flex;align-items:center}
+}
+
+/* Small phones (iPhone SE, older Androids) */
+@media(max-width:380px){
+  html{font-size:14px}
+  .hero h1{font-size:1.6rem}
+  .hero-sub{font-size:.85rem}
+  .hero-stats{gap:16px}
+  .hero-stat .num{font-size:1.2rem}
+  .section-header h2{font-size:1.5rem}
+  .products-grid{grid-template-columns:1fr;gap:16px}
+  .product-img{height:220px}
+  .product-info{padding:16px}
+  .product-name{font-size:1.05rem}
+  .product-desc{-webkit-line-clamp:3}
+  .events-gallery{grid-template-columns:1fr;gap:12px}
+  .events-gallery .ev-img{height:220px}
+  .gifting-images{grid-template-columns:1fr}
+  .gifting-images img{height:200px}
+  .story-images{height:250px}
+  .process-steps{grid-template-columns:1fr;gap:24px}
+  .process-icon{width:100px;height:100px}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* Landscape phone */
+@media(max-height:500px) and (orientation:landscape){
+  .hero{min-height:auto;padding:60px 0 40px}
+  .hero-stats{display:none}
+}
+
+/* Dark mode support (follows phone system setting) */
+@media(prefers-color-scheme:dark){
+  /* Keeping light theme intentionally — earthy premium brand looks better in light mode */
+}
+
+/* Reduce motion for accessibility */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .fade-up,.fade-left,.fade-right{opacity:1;transform:none;transition:none}
+  .product-card:hover{transform:none}
+  .btn:hover{transform:none}
+}
+
+/* High DPI screens — sharper text */
+@media(-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
+  body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div>
+        <div class="nav-logo-text">RATION VEDA</div>
+        <div class="nav-logo-sub">Swaad Aur Parampara Ka Sangam</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#story">Our Story</a>
+      <a href="#process">Process</a>
+      <a href="#products">Products</a>
+      <a href="#gifting">Gifting</a>
+      <a href="#events">Events</a>
+      <a href="#impact">Our Impact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20know%20more%20about%20your%20spices." class="btn btn-whatsapp" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order Now
+      </a>
+      <a href="tel:+919711784375" class="btn btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Us
+      </a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#story" onclick="toggleMenu()">Our Story</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#products" onclick="toggleMenu()">Products</a>
+  <a href="#gifting" onclick="toggleMenu()">Gifting</a>
+  <a href="#events" onclick="toggleMenu()">Events</a>
+  <a href="#impact" onclick="toggleMenu()">Our Impact</a>
+  <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20order%20your%20spices." class="btn btn-whatsapp" target="_blank" style="margin-top:8px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Order on WhatsApp
+  </a>
+  <a href="tel:+919711784375" class="btn btn-call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call to Order
+  </a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"><img src="images/hero-women-grinding.jpg" alt="Women hand-pounding spices using traditional Silbatta at Ration Veda" loading="eager"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#10022; Hand-Pounded Since Generations</div>
+    <h1>Spices Crafted The Way <span>Nature Intended</span></h1>
+    <p class="hero-sub">Reviving the ancient Imam-Dasta technique to bring you spices that are unmatchable in taste, purity, and authenticity. Zero chemicals. Zero compromise.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20order%20your%20hand-pounded%20spices." class="btn btn-whatsapp btn-lg" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order on WhatsApp
+      </a>
+      <a href="tel:+919711784375" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.4);color:#fff">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call to Order
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">700+</div><div class="label">Happy Families</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="label">Natural & Pure</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="label">Premium Spices</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> 100% Natural</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> No Additives or Fillers</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> Imam-Dasta Hand-Pounded</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> Single-Origin Sourced</div>
+    <div class="trust-item"><span class="trust-icon">&#10003;</span> Empowering Female Farmers</div>
+  </div>
+</div>
+
+<!-- ═══ OUR STORY ═══ -->
+<section class="section" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-images fade-left">
+        <div class="story-img-main"><img src="images/process-imam-dasta.jpg" alt="Woman using Imam-Dasta to hand-pound spices"></div>
+        <div class="story-img-accent"><img src="images/sourcing-raw-spices.jpg" alt="Raw turmeric, chillies and coriander freshly harvested"></div>
+      </div>
+      <div class="story-text fade-right">
+        <div class="overline" style="font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--green-soft);font-weight:600;margin-bottom:12px">Our Story</div>
+        <h2>The Problem We're <span class="highlight">Solving</span></h2>
+        <p>There is not a single spice brand in India truly known for authenticity and purity. Everyday, news of adulteration shakes consumer trust. Even premium brands fail food safety tests. Industrial machines generate extreme heat that destroys essential oils, flavour, and nutrition.</p>
+        <div class="story-quote">
+          <p>"We don't just sell spices. We revive a forgotten craft that makes food the way it was meant to taste."</p>
+        </div>
+        <p>At Ration Veda, we revive the age-old hand-pounding technique using the <strong>Imam-Dasta</strong> (mortar & pestle). This low-heat, slow process preserves 100% of the essential oils and natural potency — delivering flavour that machines simply cannot replicate.</p>
+        <p>Every spice is sourced directly from the region known for the finest harvest of that particular ingredient. No middlemen. No compromise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="section section-alt" id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="overline">Our Process</div>
+      <h2>From Farm to Your Kitchen</h2>
+      <p>Every step is intentional. Every choice preserves what mass production destroys.</p>
+    </div>
+    <div class="process-steps fade-up">
+      <div class="process-step">
+        <div class="process-icon"><img src="images/sourcing-women-sorting.jpg" alt="Women sorting spices at farm"></div>
+        <div class="step-num">01</div>
+        <h3>Region-Specific Sourcing</h3>
+        <p>Guntur chillies, Rajasthani coriander, Rajapuri turmeric — each spice from where it grows finest.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon"><img src="images/sourcing-raw-spices.jpg" alt="Raw turmeric and chillies drying"></div>
+        <div class="step-num">02</div>
+        <h3>Sun-Dried & Hand-Cleaned</h3>
+        <p>Natural sun-drying preserves aroma. Hand-cleaned for purity — no chemicals, no shortcuts.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon"><img src="images/process-silbatta-closeup.jpg" alt="Close-up of hands grinding spices on Silbatta"></div>
+        <div class="step-num">03</div>
+        <h3>Imam-Dasta Hand-Pounding</h3>
+        <p>Zero-heat grinding using traditional mortar & pestle. Preserves essential oils and true flavour.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-icon"><img src="images/products-all-potlis.jpg" alt="Ration Veda potli packaging"></div>
+        <div class="step-num">04</div>
+        <h3>Small-Batch Packaging</h3>
+        <p>Ground fresh in small batches. Packed in premium canvas potlis to retain freshness.</p>
+      </div>
+    </div>
+    <div class="process-hero fade-up">
+      <img src="images/process-two-women-imamdasta.jpg" alt="Two women using large Imam-Dasta for hand-pounding spices">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="overline">Our Products</div>
+      <h2>Hand-Pounded Premium Spices</h2>
+      <p>Each spice tells a story of its origin. Taste the difference that tradition makes.</p>
+    </div>
+    <div class="products-grid">
+      <!-- Guntur Chilli -->
+      <div class="product-card fade-up">
+        <div class="product-img">
+          <img src="images/products-jars-giftbox.jpg" alt="Guntur Red Chilli Powder" style="object-position:left center">
+          <div class="product-badge">Bestseller</div>
+        </div>
+        <div class="product-info">
+          <div class="product-origin">Guntur, Andhra Pradesh</div>
+          <div class="product-name">Guntur Red Chilli Powder</div>
+          <div class="product-desc">Fiery, deep-red chilli from Guntur — India's chilli capital. Rich colour and bold heat with no added dyes.</div>
+          <div class="product-bottom">
+            <div class="product-price">&#8377;110 <span>/ 100g</span></div>
+            <a href="https://wa.me/919711784375?text=Hi!%20I%27d%20like%20to%20order%20Guntur%20Red%20Chilli%20Powder%20(100g%20%E2%82%B9110)" class="product-btn" target="_blank" title="Order on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Rajasthani Coriander -->
+      <div class="product-card fade-up">
+        <div class="product-img">
+          <img src="images/products-potlis-fountain.jpg" alt="Rajasthani Coriander Powder" style="object-position:center 30%">
+        </div>
+        <div class="product-info">
+          <div class="product-origin">Rajasthan</div>
+          <div class="product-name">Rajasthani Dhaniya Powder</div>
+          <div class="product-desc">Aromatic coriander from Rajasthan's finest farms. Earthy, citrusy flavour that elevates every dish.</div>
+          <div class="product-bottom">
+            <div class="product-price">&#8377;100 <span>/ 100g</span></div>
+            <a href="https://wa.me/919711784375?text=Hi!%20I%27d%20like%20to%20order%20Rajasthani%20Dhaniya%20Powder%20(100g%20%E2%82%B9100)" class="product-btn" target="_blank" title="Order on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Rajapuri Turmeric -->
+      <div class="product-card fade-up">
+        <div class="product-img">
+          <img src="images/products-jars-display.jpg" alt="Rajapuri Turmeric Powder" style="object-position:right center">
+        </div>
+        <div class="product-info">
+          <div class="product-origin">Maharashtra</div>
+          <div class="product-name">Rajapuri Haldi Powder</div>
+          <div class="product-desc">High-curcumin Rajapuri turmeric from Maharashtra. Deep golden colour, potent anti-inflammatory properties.</div>
+          <div class="product-bottom">
+            <div class="product-price">&#8377;100 <span>/ 100g</span></div>
+            <a href="https://wa.me/919711784375?text=Hi!%20I%27d%20like%20to%20order%20Rajapuri%20Haldi%20Powder%20(100g%20%E2%82%B9100)" class="product-btn" target="_blank" title="Order on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Punjabi Garam Masala -->
+      <div class="product-card fade-up">
+        <div class="product-img">
+          <img src="images/products-all-potlis.jpg" alt="Punjabi Garam Masala" style="object-position:center 40%">
+          <div class="product-badge">Premium</div>
+        </div>
+        <div class="product-info">
+          <div class="product-origin">Punjab</div>
+          <div class="product-name">Punjabi Garam Masala</div>
+          <div class="product-desc">A robust blend of hand-pounded whole spices. The soul of North Indian cooking, crafted to perfection.</div>
+          <div class="product-bottom">
+            <div class="product-price">&#8377;220 <span>/ 100g</span></div>
+            <a href="https://wa.me/919711784375?text=Hi!%20I%27d%20like%20to%20order%20Punjabi%20Garam%20Masala%20(100g%20%E2%82%B9220)" class="product-btn" target="_blank" title="Order on WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Order All CTA -->
+    <div style="text-align:center;margin-top:48px" class="fade-up">
+      <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20order%20the%20complete%20set%20of%20all%204%20spices." class="btn btn-gold btn-lg" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order Complete Set — All 4 Spices
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GIFTING ═══ -->
+<section class="section section-alt" id="gifting">
+  <div class="container">
+    <div class="gifting-grid">
+      <div class="gifting-text fade-left">
+        <div class="overline" style="font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--green-soft);font-weight:600;margin-bottom:12px">Gifting</div>
+        <h2>The Gift of <span class="highlight">Authentic Taste</span></h2>
+        <p>Looking for a gift that's thoughtful, useful, and truly special? Our premium spice gift boxes make the perfect present for food lovers, health-conscious families, and anyone who values authenticity.</p>
+        <div class="gifting-features">
+          <div class="gifting-feature"><div class="icon">&#10003;</div><p><strong>Festival Gifting</strong> — Perfect for Diwali, Holi, Navratri, and every celebration</p></div>
+          <div class="gifting-feature"><div class="icon">&#10003;</div><p><strong>Wedding & Kitty Party</strong> — A unique and memorable gift your guests will love</p></div>
+          <div class="gifting-feature"><div class="icon">&#10003;</div><p><strong>Corporate Gifting</strong> — Customizable gift boxes for your team and clients</p></div>
+          <div class="gifting-feature"><div class="icon">&#10003;</div><p><strong>Multiple Gift Boxes</strong> — Available in premium packaging with all 4 spices + jars</p></div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+          <a href="https://wa.me/919711784375?text=Hi!%20I%27m%20interested%20in%20Ration%20Veda%20gift%20boxes.%20Please%20share%20options%20and%20pricing." class="btn btn-whatsapp" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Enquire About Gifting
+          </a>
+          <a href="tel:+919711784375" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call for Bulk Orders
+          </a>
+        </div>
+      </div>
+      <div class="gifting-images fade-right">
+        <img src="images/gift-box-purple.jpg" alt="Ration Veda purple gift box with 4 spices">
+        <img src="images/gift-box-open.jpg" alt="Open gift box showing potli spice pouches">
+        <img src="images/gift-box-teal.jpg" alt="Teal floral gift box packaging">
+        <img src="images/products-jars-giftbox.jpg" alt="Spice jars displayed on gift box">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EVENTS ═══ -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="overline">Meet Us</div>
+      <h2>Where We've Been</h2>
+      <p>From premium farmer's markets to society events and mall pop-ups — we love meeting our customers face to face. Come taste the difference.</p>
+    </div>
+    <div class="events-gallery fade-up">
+      <div class="ev-img tall"><img src="images/event-customer-interaction.jpg" alt="Customer interacting at Ration Veda stall"></div>
+      <div class="ev-img"><img src="images/event-banner-stall.jpg" alt="Ration Veda stall with banner at farmers market"></div>
+      <div class="ev-img"><img src="images/event-society-customers.jpg" alt="Customers at society event"></div>
+      <div class="ev-img"><img src="images/event-mall-stall2.jpg" alt="Ration Veda at mall event"></div>
+      <div class="ev-img"><img src="images/event-festival-stall.jpg" alt="Festival stall setup with products"></div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="fade-up">
+      <p style="font-size:1.05rem;color:var(--text-light);margin-bottom:20px">Want us at your society, office, or event?</p>
+      <a href="https://wa.me/919711784375?text=Hi!%20I%27d%20like%20to%20invite%20Ration%20Veda%20for%20an%20event%20at%20our%20society%2Foffice." class="btn btn-gold" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Invite Us to Your Event
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IMPACT ═══ -->
+<section class="section section-green" id="impact">
+  <div class="container">
+    <div class="impact-grid">
+      <div class="impact-img fade-left">
+        <img src="images/sourcing-women-sorting.jpg" alt="Female farmers sorting and drying spices in rural India">
+      </div>
+      <div class="impact-cards fade-right">
+        <div style="margin-bottom:20px">
+          <div class="overline" style="font-size:.75rem;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:600;margin-bottom:12px">Our Impact</div>
+          <h2 style="color:#fff;font-size:2.2rem;margin-bottom:16px">More Than Spices.<br>A Movement.</h2>
+          <p style="color:rgba(255,255,255,.8);line-height:1.8">Every purchase you make directly supports the women who grow and prepare your spices.</p>
+        </div>
+        <div class="impact-card">
+          <h3>Empowering Female Farmers</h3>
+          <p>We partner directly with female farmer groups, eliminating middlemen. These women receive fair prices for their harvest, creating sustainable economic empowerment in rural communities.</p>
+        </div>
+        <div class="impact-card">
+          <h3>Preserving Ancient Traditions</h3>
+          <p>The Imam-Dasta and Silbatta techniques are disappearing. By creating market demand for hand-pounded spices, we're keeping this centuries-old craft alive for future generations.</p>
+        </div>
+        <div class="impact-card">
+          <h3>Honest & Transparent</h3>
+          <p>No additives, no fillers, no artificial colours. Simple, clean ingredient lists. We believe in honest pricing and honest ingredients — what you see is what you get.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-banner">
+  <div class="container">
+    <h2>Ready to Taste the Difference?</h2>
+    <p>Join 700+ families who've switched to hand-pounded spices. Once you taste Ration Veda, there's no going back.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20place%20an%20order%20for%20your%20hand-pounded%20spices." class="btn btn-whatsapp btn-lg" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order on WhatsApp
+      </a>
+      <a href="tel:+919711784375" class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call: +91 97117 84375
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4 style="font-size:1.4rem">RATION VEDA</h4>
+        <p style="font-size:.75rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px">Swaad Aur Parampara Ka Sangam</p>
+        <p>Hand-pounded premium spices crafted using the ancient Imam-Dasta technique. Region-sourced. 100% natural. Empowering female farmers.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/rationveda" target="_blank" title="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/919711784375" target="_blank" title="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gifting">Gifting</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#impact">Our Impact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Products</h4>
+        <ul class="footer-links">
+          <li><a href="#products">Guntur Red Chilli Powder</a></li>
+          <li><a href="#products">Rajasthani Dhaniya Powder</a></li>
+          <li><a href="#products">Rajapuri Haldi Powder</a></li>
+          <li><a href="#products">Punjabi Garam Masala</a></li>
+          <li><a href="#gifting">Gift Boxes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+919711784375">+91 97117 84375</a></li>
+          <li><a href="https://wa.me/919711784375" target="_blank">WhatsApp Us</a></li>
+          <li><a href="https://www.instagram.com/rationveda" target="_blank">@rationveda</a></li>
+          <li><a href="mailto:contact@rationveda.com">contact@rationveda.com</a></li>
+          <li><a>Gurgaon, Haryana, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ration Veda. All rights reserved. | Hand-Pounded. Region-Sourced. Unmatchable.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ FLOATING BUTTONS ═══ -->
+<div class="floating-btns">
+  <a href="https://wa.me/919711784375?text=Hi%20Ration%20Veda!%20I%27d%20like%20to%20order%20your%20spices." class="float-btn float-whatsapp" target="_blank" title="Order on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <a href="tel:+919711784375" class="float-btn float-call" title="Call to Order">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+// Navbar scroll effect
+const navbar=document.getElementById('navbar');
+let lastScroll=0;
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  navbar.classList.toggle('scrolled',y>50);
+  // Auto-hide navbar on scroll down on mobile, show on scroll up
+  if(window.innerWidth<=768){
+    if(y>lastScroll&&y>200){navbar.style.transform='translateY(-100%)'}
+    else{navbar.style.transform='translateY(0)'}
+    navbar.style.transition='transform .3s ease';
+  }else{navbar.style.transform=''}
+  lastScroll=y;
+},{passive:true});
+
+// Mobile menu toggle with hamburger animation
+function toggleMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const hamburger=document.querySelector('.hamburger');
+  menu.classList.toggle('active');
+  hamburger.classList.toggle('active');
+  // Prevent body scroll when menu is open
+  document.body.style.overflow=menu.classList.contains('active')?'hidden':'';
+}
+
+// Close menu when clicking outside
+document.addEventListener('click',function(e){
+  const menu=document.getElementById('mobileMenu');
+  const hamburger=document.querySelector('.hamburger');
+  if(menu.classList.contains('active')&&!menu.contains(e.target)&&!hamburger.contains(e.target)){
+    menu.classList.remove('active');
+    hamburger.classList.remove('active');
+    document.body.style.overflow='';
+  }
+});
+
+// Scroll animations with better mobile threshold
+const isMobile=window.innerWidth<=768;
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:isMobile?0.08:0.15,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>observer.observe(el));
+
+// Smooth scroll for anchor links — offset for fixed navbar
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){
+  e.preventDefault();
+  const t=document.querySelector(this.getAttribute('href'));
+  if(t){
+    const offset=window.innerWidth<=768?60:70;
+    const top=t.getBoundingClientRect().top+window.pageYOffset-offset;
+    window.scrollTo({top,behavior:'smooth'});
+  }
+  // Close mobile menu if open
+  const menu=document.getElementById('mobileMenu');
+  if(menu.classList.contains('active')){toggleMenu()}
+})});
+
+// Fix iOS 100vh issue
+function setVH(){document.documentElement.style.setProperty('--vh',window.innerHeight*0.01+'px')}
+setVH();window.addEventListener('resize',setVH);
+</script>
+</body>
+</html>
