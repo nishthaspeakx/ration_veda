@@ -159,44 +159,68 @@ if os.path.exists(logo_path):
         ration_part = logo_to_cream_bg(ration_part, CREAM)
         veda_part = logo_to_cream_bg(veda_part, CREAM)
 
-        # Target a total width leaving 120px margins on each side
-        target_total_w = W - 240  # 840 px
+        def measure_letter_height(img, threshold=200):
+            """Measure the cap-height of letters only.
+            For RATION the flower is taller than the letters, so we measure
+            the 'R' at the leftmost edge instead of the whole bbox."""
+            gray = img.convert('L')
+            w, h = gray.size
+            px = gray.load()
+            # Scan leftmost 20% of columns (where letter 'R' or 'V' lives, no flower)
+            col_limit = max(1, int(w * 0.20))
+            min_y, max_y = h, 0
+            for col in range(col_limit):
+                for row in range(h):
+                    if px[col, row] < threshold:
+                        if row < min_y: min_y = row
+                        if row > max_y: max_y = row
+            return max(1, max_y - min_y + 1), min_y, max_y
+
+        # Measure letter heights (RATION-R and VEDA-V)
+        r_letter_h, r_top, r_bot = measure_letter_height(ration_part)
+        v_letter_h, v_top, v_bot = measure_letter_height(veda_part)
+
+        # Target: RATION letter-height = VEDA letter-height in output
+        # Pick a target letter height in px
+        target_letter_h = 125
+
+        # Compute scale factors
+        r_scale = target_letter_h / r_letter_h
+        v_scale = target_letter_h / v_letter_h
+
+        r_w_new = int(ration_part.width * r_scale)
+        r_h_new = int(ration_part.height * r_scale)
+        v_w_new = int(veda_part.width * v_scale)
+        v_h_new = int(veda_part.height * v_scale)
+
+        # Check total width and shrink uniformly if too wide
         gap = 40
-
-        # VEDA renders at same height as RATION (matching cap-height)
-        veda_scale_vs_ration = 1.0
-        # Compute what heights make the widths add up to target_total_w
-        # Assume we scale RATION to height h_r, then h_v = h_r * 0.80
-        # Width at that scale: w_r' = w_r * h_r / h_r_orig ; w_v' = w_v * (h_r*0.8) / h_v_orig
-        # Need w_r' + gap + w_v' = target_total_w
-        w_r = ration_part.width
-        h_r = ration_part.height
-        w_v = veda_part.width
-        h_v = veda_part.height
-        # Solve for h_r:
-        # (w_r / h_r) * h_r_new + (w_v / h_v) * (h_r_new * 0.8) = target_total_w - gap
-        k = (w_r / h_r) + (w_v / h_v) * veda_scale_vs_ration
-        h_r_new = (target_total_w - gap) / k
-        h_r_new = min(h_r_new, 160)  # cap so not crazy tall
-        h_v_new = h_r_new * veda_scale_vs_ration
-
-        r_w_new = int(w_r * h_r_new / h_r)
-        r_h_new = int(h_r_new)
-        v_w_new = int(w_v * h_v_new / h_v)
-        v_h_new = int(h_v_new)
+        target_total_w = W - 240  # 840 px
+        total_w = r_w_new + gap + v_w_new
+        if total_w > target_total_w:
+            shrink = target_total_w / total_w
+            r_w_new = int(r_w_new * shrink)
+            r_h_new = int(r_h_new * shrink)
+            v_w_new = int(v_w_new * shrink)
+            v_h_new = int(v_h_new * shrink)
+            total_w = r_w_new + gap + v_w_new
 
         ration_part = ration_part.resize((r_w_new, r_h_new), Image.LANCZOS)
         veda_part = veda_part.resize((v_w_new, v_h_new), Image.LANCZOS)
 
-        total_w = r_w_new + gap + v_w_new
+        # Baseline-align: both letter bottoms should sit on same line
+        # After scaling, letter baselines are at r_bot * r_scale and v_bot * v_scale
+        r_baseline_y = int(r_bot * r_scale)
+        v_baseline_y = int(v_bot * v_scale)
+        baseline_target = max(r_baseline_y, v_baseline_y)
+
         lx = (W - total_w) // 2
-        y += 20  # small top padding
-        # Paste RATION
-        poster.paste(ration_part, (lx, y))
-        # Baseline-align VEDA (bottom aligned with RATION)
-        veda_y = y + r_h_new - v_h_new
-        poster.paste(veda_part, (lx + r_w_new + gap, veda_y))
-        y += r_h_new + 20
+        y += 20
+        r_paste_y = y + baseline_target - r_baseline_y
+        v_paste_y = y + baseline_target - v_baseline_y
+        poster.paste(ration_part, (lx, r_paste_y))
+        poster.paste(veda_part, (lx + r_w_new + gap, v_paste_y))
+        y += max(r_h_new, v_h_new) + 20
     else:
         # Fallback: paste stacked logo as before
         logo = logo_to_cream_bg(raw, CREAM)
