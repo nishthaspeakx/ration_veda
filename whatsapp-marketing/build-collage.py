@@ -9,7 +9,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(BASE, '..', 'website', 'images')
 
 # Canvas
-W, H = 1080, 1700
+W, H = 1080, 1600
 CREAM = (253, 248, 240)
 GREEN_DEEP = (27, 67, 50)
 GREEN_MID = (45, 106, 79)
@@ -115,18 +115,95 @@ def logo_to_cream_bg(img, cream_rgb, threshold=190):
                     pixels[x_, y_] = (nr, ng, nb, 255)
     return img.convert('RGB')
 
+def split_logo_horizontally(img, threshold=225):
+    """Split the stacked RATION / VEDA logo into two images by finding the widest empty row.
+    Returns (ration_img, veda_img)."""
+    gray = img.convert('L')
+    w, h = gray.size
+    # For each row, count non-white pixels
+    row_ink = []
+    px = gray.load()
+    for row in range(h):
+        cnt = 0
+        for col in range(w):
+            if px[col, row] < threshold:
+                cnt += 1
+        row_ink.append(cnt)
+    # Find longest run of empty (all-white) rows
+    best_start, best_len = -1, 0
+    cur_start, cur_len = -1, 0
+    for i, c in enumerate(row_ink):
+        if c == 0:
+            if cur_start == -1:
+                cur_start = i
+            cur_len = i - cur_start + 1
+            if cur_len > best_len:
+                best_len, best_start = cur_len, cur_start
+        else:
+            cur_start, cur_len = -1, 0
+    if best_len < 5:
+        return None, None  # couldn't detect gap
+    split_y = best_start + best_len // 2
+    top = img.crop((0, 0, w, split_y))
+    bottom = img.crop((0, split_y, w, h))
+    return crop_logo_whitespace(top), crop_logo_whitespace(bottom)
+
 logo_path = os.path.join(BASE, 'logo.jpeg')
 if os.path.exists(logo_path):
-    logo = Image.open(logo_path).convert('RGB')
-    logo = crop_logo_whitespace(logo)
-    logo = logo_to_cream_bg(logo, CREAM)
-    # Resize to fit width ~ 500px
-    logo_target_w = 500
-    ratio = logo_target_w / logo.width
-    logo = logo.resize((logo_target_w, int(logo.height * ratio)), Image.LANCZOS)
-    lx = (W - logo.width) // 2
-    poster.paste(logo, (lx, y))
-    y += logo.height + 15
+    raw = Image.open(logo_path).convert('RGB')
+    raw = crop_logo_whitespace(raw)
+    ration_part, veda_part = split_logo_horizontally(raw)
+
+    if ration_part and veda_part:
+        # Blend near-white to cream on each piece
+        ration_part = logo_to_cream_bg(ration_part, CREAM)
+        veda_part = logo_to_cream_bg(veda_part, CREAM)
+
+        # Target a total width leaving 120px margins on each side
+        target_total_w = W - 240  # 840 px
+        gap = 40
+
+        # VEDA renders at 80% height of RATION (proportionally narrower)
+        veda_scale_vs_ration = 0.80
+        # Compute what heights make the widths add up to target_total_w
+        # Assume we scale RATION to height h_r, then h_v = h_r * 0.80
+        # Width at that scale: w_r' = w_r * h_r / h_r_orig ; w_v' = w_v * (h_r*0.8) / h_v_orig
+        # Need w_r' + gap + w_v' = target_total_w
+        w_r = ration_part.width
+        h_r = ration_part.height
+        w_v = veda_part.width
+        h_v = veda_part.height
+        # Solve for h_r:
+        # (w_r / h_r) * h_r_new + (w_v / h_v) * (h_r_new * 0.8) = target_total_w - gap
+        k = (w_r / h_r) + (w_v / h_v) * veda_scale_vs_ration
+        h_r_new = (target_total_w - gap) / k
+        h_r_new = min(h_r_new, 160)  # cap so not crazy tall
+        h_v_new = h_r_new * veda_scale_vs_ration
+
+        r_w_new = int(w_r * h_r_new / h_r)
+        r_h_new = int(h_r_new)
+        v_w_new = int(w_v * h_v_new / h_v)
+        v_h_new = int(h_v_new)
+
+        ration_part = ration_part.resize((r_w_new, r_h_new), Image.LANCZOS)
+        veda_part = veda_part.resize((v_w_new, v_h_new), Image.LANCZOS)
+
+        total_w = r_w_new + gap + v_w_new
+        lx = (W - total_w) // 2
+        y += 20  # small top padding
+        # Paste RATION
+        poster.paste(ration_part, (lx, y))
+        # Baseline-align VEDA (bottom aligned with RATION)
+        veda_y = y + r_h_new - v_h_new
+        poster.paste(veda_part, (lx + r_w_new + gap, veda_y))
+        y += r_h_new + 20
+    else:
+        # Fallback: paste stacked logo as before
+        logo = logo_to_cream_bg(raw, CREAM)
+        lw = 500
+        logo = logo.resize((lw, int(logo.height * lw / logo.width)), Image.LANCZOS)
+        poster.paste(logo, ((W - lw) // 2, y))
+        y += logo.height + 15
 else:
     center_text(draw, 'RATION VEDA', y, font(92, bold=True), (56, 74, 73))
     y += 120
