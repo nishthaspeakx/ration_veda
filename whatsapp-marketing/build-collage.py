@@ -9,7 +9,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(BASE, '..', 'website', 'images')
 
 # Canvas
-W, H = 1080, 1600
+W, H = 1080, 1700
 CREAM = (253, 248, 240)
 GREEN_DEEP = (27, 67, 50)
 GREEN_MID = (45, 106, 79)
@@ -83,87 +83,54 @@ def center_text(draw, text, y, f, fill):
 draw.rectangle([0, 0, W, 12], fill=GREEN_DEEP)
 draw.rectangle([0, 12, W, 18], fill=GOLD)
 
-# ═══ Header: RATION (with floral O) + VEDA (stacked) ═══
-y = 40
-LOGO_GREEN = (56, 74, 73)  # dark slate-green matching brand logo
+# ═══ Header: use the real Ration Veda logo file ═══
+y = 30
 
-def draw_floral_mark(canvas, cx, cy, radius, color):
-    """Draw a lotus/dahlia rosette — 16 petals in two layers + center cluster."""
-    import math
-    d = ImageDraw.Draw(canvas)
-    # Outer ring — 16 pointed petals
-    for i in range(16):
-        ang = (i / 16) * 2 * math.pi
-        px = cx + math.cos(ang) * radius * 0.62
-        py = cy + math.sin(ang) * radius * 0.62
-        # petal as small rotated ellipse approximated by filled polygon
-        pw, ph = radius * 0.22, radius * 0.42
-        # build petal points
-        cos_a, sin_a = math.cos(ang), math.sin(ang)
-        pts = []
-        for t in range(20):
-            theta = (t / 20) * 2 * math.pi
-            ex = math.cos(theta) * pw
-            ey = math.sin(theta) * ph
-            # rotate by ang + pi/2 (petal points outward)
-            rx = ex * math.cos(ang + math.pi/2) - ey * math.sin(ang + math.pi/2)
-            ry = ex * math.sin(ang + math.pi/2) + ey * math.cos(ang + math.pi/2)
-            pts.append((px + rx, py + ry))
-        d.polygon(pts, fill=color)
-    # Inner ring — 12 smaller petals, rotated offset
-    for i in range(12):
-        ang = (i / 12) * 2 * math.pi + math.pi / 12
-        px = cx + math.cos(ang) * radius * 0.30
-        py = cy + math.sin(ang) * radius * 0.30
-        pw, ph = radius * 0.16, radius * 0.28
-        pts = []
-        for t in range(20):
-            theta = (t / 20) * 2 * math.pi
-            ex = math.cos(theta) * pw
-            ey = math.sin(theta) * ph
-            rx = ex * math.cos(ang + math.pi/2) - ey * math.sin(ang + math.pi/2)
-            ry = ex * math.sin(ang + math.pi/2) + ey * math.cos(ang + math.pi/2)
-            pts.append((px + rx, py + ry))
-        d.polygon(pts, fill=color)
-    # Center seed cluster — small dots
-    for i in range(6):
-        ang = (i / 6) * 2 * math.pi
-        sx = cx + math.cos(ang) * radius * 0.08
-        sy = cy + math.sin(ang) * radius * 0.08
-        d.ellipse([sx - radius*0.05, sy - radius*0.05, sx + radius*0.05, sy + radius*0.05], fill=color)
-    d.ellipse([cx - radius*0.06, cy - radius*0.06, cx + radius*0.06, cy + radius*0.06], fill=color)
+def crop_logo_whitespace(img, threshold=225):
+    """Trim near-white borders around the logo."""
+    gray = img.convert('L')
+    mask = gray.point(lambda p: 255 if p < threshold else 0)
+    bbox = mask.getbbox()
+    return img.crop(bbox) if bbox else img
 
-# Draw RATION with floral 'O' — we render R A T I [flower] N
-# Use a slightly elegant serif-style font
-logo_font = font(110, bold=True)
+def logo_to_cream_bg(img, cream_rgb, threshold=190):
+    """Convert near-white pixels to cream so logo blends seamlessly."""
+    img = img.convert('RGBA')
+    pixels = img.load()
+    for y_ in range(img.height):
+        for x_ in range(img.width):
+            r, g, b, a = pixels[x_, y_]
+            # Near-white → cream
+            if r > threshold and g > threshold and b > threshold:
+                pixels[x_, y_] = (*cream_rgb, 255)
+            else:
+                # Dark (logo ink) pixel: keep but blend toward cream on lighter edges
+                # for anti-aliasing, calculate a mix factor
+                avg = (r + g + b) / 3
+                if avg > 100:  # light grey edge pixel
+                    t = (avg - 100) / (threshold - 100)
+                    nr = int(r * (1 - t) + cream_rgb[0] * t)
+                    ng = int(g * (1 - t) + cream_rgb[1] * t)
+                    nb = int(b * (1 - t) + cream_rgb[2] * t)
+                    pixels[x_, y_] = (nr, ng, nb, 255)
+    return img.convert('RGB')
 
-# Measure segments of RATION to align baseline
-seg_left = 'RATI'
-seg_right = 'N'
-bbox_left = draw.textbbox((0, 0), seg_left, font=logo_font)
-bbox_right = draw.textbbox((0, 0), seg_right, font=logo_font)
-w_left = bbox_left[2] - bbox_left[0]
-w_right = bbox_right[2] - bbox_right[0]
-char_h = bbox_left[3] - bbox_left[1]
-flower_size = int(char_h * 0.92)  # slightly smaller than cap height
-gap = int(char_h * 0.02)
-total_w = w_left + gap + flower_size + gap + w_right
+logo_path = os.path.join(BASE, 'logo.jpeg')
+if os.path.exists(logo_path):
+    logo = Image.open(logo_path).convert('RGB')
+    logo = crop_logo_whitespace(logo)
+    logo = logo_to_cream_bg(logo, CREAM)
+    # Resize to fit width ~ 500px
+    logo_target_w = 500
+    ratio = logo_target_w / logo.width
+    logo = logo.resize((logo_target_w, int(logo.height * ratio)), Image.LANCZOS)
+    lx = (W - logo.width) // 2
+    poster.paste(logo, (lx, y))
+    y += logo.height + 15
+else:
+    center_text(draw, 'RATION VEDA', y, font(92, bold=True), (56, 74, 73))
+    y += 120
 
-x_start = (W - total_w) // 2
-# Draw "RATI"
-draw.text((x_start, y), seg_left, font=logo_font, fill=LOGO_GREEN)
-# Draw flower (centered where the 'O' would be)
-flower_cx = x_start + w_left + gap + flower_size // 2
-flower_cy = y + char_h // 2 + bbox_left[1]  # align to cap-center
-draw_floral_mark(poster, flower_cx, flower_cy, flower_size // 2, LOGO_GREEN)
-# Draw "N"
-draw.text((x_start + w_left + gap + flower_size + gap, y), seg_right, font=logo_font, fill=LOGO_GREEN)
-
-y += char_h + 8
-# VEDA — slightly smaller, centered below
-veda_font = font(96, bold=True)
-center_text(draw, 'VEDA', y, veda_font, LOGO_GREEN)
-y += 110
 # Decorative divider
 draw.rectangle([(W // 2 - 80, y), (W // 2 + 80, y + 3)], fill=GOLD)
 y += 22
