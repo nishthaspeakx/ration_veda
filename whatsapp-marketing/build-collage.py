@@ -83,18 +83,95 @@ def center_text(draw, text, y, f, fill):
 draw.rectangle([0, 0, W, 12], fill=GREEN_DEEP)
 draw.rectangle([0, 12, W, 18], fill=GOLD)
 
-# ═══ Header: RATION VEDA ═══
-y = 50
-center_text(draw, 'RATION VEDA', y, font(92, bold=True), GREEN_DEEP)
+# ═══ Header: RATION (with floral O) + VEDA (stacked) ═══
+y = 40
+LOGO_GREEN = (56, 74, 73)  # dark slate-green matching brand logo
+
+def draw_floral_mark(canvas, cx, cy, radius, color):
+    """Draw a lotus/dahlia rosette — 16 petals in two layers + center cluster."""
+    import math
+    d = ImageDraw.Draw(canvas)
+    # Outer ring — 16 pointed petals
+    for i in range(16):
+        ang = (i / 16) * 2 * math.pi
+        px = cx + math.cos(ang) * radius * 0.62
+        py = cy + math.sin(ang) * radius * 0.62
+        # petal as small rotated ellipse approximated by filled polygon
+        pw, ph = radius * 0.22, radius * 0.42
+        # build petal points
+        cos_a, sin_a = math.cos(ang), math.sin(ang)
+        pts = []
+        for t in range(20):
+            theta = (t / 20) * 2 * math.pi
+            ex = math.cos(theta) * pw
+            ey = math.sin(theta) * ph
+            # rotate by ang + pi/2 (petal points outward)
+            rx = ex * math.cos(ang + math.pi/2) - ey * math.sin(ang + math.pi/2)
+            ry = ex * math.sin(ang + math.pi/2) + ey * math.cos(ang + math.pi/2)
+            pts.append((px + rx, py + ry))
+        d.polygon(pts, fill=color)
+    # Inner ring — 12 smaller petals, rotated offset
+    for i in range(12):
+        ang = (i / 12) * 2 * math.pi + math.pi / 12
+        px = cx + math.cos(ang) * radius * 0.30
+        py = cy + math.sin(ang) * radius * 0.30
+        pw, ph = radius * 0.16, radius * 0.28
+        pts = []
+        for t in range(20):
+            theta = (t / 20) * 2 * math.pi
+            ex = math.cos(theta) * pw
+            ey = math.sin(theta) * ph
+            rx = ex * math.cos(ang + math.pi/2) - ey * math.sin(ang + math.pi/2)
+            ry = ex * math.sin(ang + math.pi/2) + ey * math.cos(ang + math.pi/2)
+            pts.append((px + rx, py + ry))
+        d.polygon(pts, fill=color)
+    # Center seed cluster — small dots
+    for i in range(6):
+        ang = (i / 6) * 2 * math.pi
+        sx = cx + math.cos(ang) * radius * 0.08
+        sy = cy + math.sin(ang) * radius * 0.08
+        d.ellipse([sx - radius*0.05, sy - radius*0.05, sx + radius*0.05, sy + radius*0.05], fill=color)
+    d.ellipse([cx - radius*0.06, cy - radius*0.06, cx + radius*0.06, cy + radius*0.06], fill=color)
+
+# Draw RATION with floral 'O' — we render R A T I [flower] N
+# Use a slightly elegant serif-style font
+logo_font = font(110, bold=True)
+
+# Measure segments of RATION to align baseline
+seg_left = 'RATI'
+seg_right = 'N'
+bbox_left = draw.textbbox((0, 0), seg_left, font=logo_font)
+bbox_right = draw.textbbox((0, 0), seg_right, font=logo_font)
+w_left = bbox_left[2] - bbox_left[0]
+w_right = bbox_right[2] - bbox_right[0]
+char_h = bbox_left[3] - bbox_left[1]
+flower_size = int(char_h * 0.92)  # slightly smaller than cap height
+gap = int(char_h * 0.02)
+total_w = w_left + gap + flower_size + gap + w_right
+
+x_start = (W - total_w) // 2
+# Draw "RATI"
+draw.text((x_start, y), seg_left, font=logo_font, fill=LOGO_GREEN)
+# Draw flower (centered where the 'O' would be)
+flower_cx = x_start + w_left + gap + flower_size // 2
+flower_cy = y + char_h // 2 + bbox_left[1]  # align to cap-center
+draw_floral_mark(poster, flower_cx, flower_cy, flower_size // 2, LOGO_GREEN)
+# Draw "N"
+draw.text((x_start + w_left + gap + flower_size + gap, y), seg_right, font=logo_font, fill=LOGO_GREEN)
+
+y += char_h + 8
+# VEDA — slightly smaller, centered below
+veda_font = font(96, bold=True)
+center_text(draw, 'VEDA', y, veda_font, LOGO_GREEN)
 y += 110
 # Decorative divider
-draw.rectangle([(W // 2 - 60, y), (W // 2 + 60, y + 3)], fill=GOLD)
-y += 20
+draw.rectangle([(W // 2 - 80, y), (W // 2 + 80, y + 3)], fill=GOLD)
+y += 22
 # Tagline
 center_text(draw, 'Swaad Aur Parampara Ka Sangam', y, font(30), GREEN_MID)
 y += 45
 center_text(draw, '— Hand-Pounded • Pure • Chemical-Free —', y, font_sans(22), BROWN)
-y += 60
+y += 55
 
 # ═══ Image collage — hero image + 2 side images ═══
 COLLAGE_TOP = y
