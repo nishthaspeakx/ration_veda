@@ -163,8 +163,8 @@ if os.path.exists(logo_path):
         target_total_w = W - 240  # 840 px
         gap = 40
 
-        # VEDA renders at 80% height of RATION (proportionally narrower)
-        veda_scale_vs_ration = 0.80
+        # VEDA renders at same height as RATION (matching cap-height)
+        veda_scale_vs_ration = 1.0
         # Compute what heights make the widths add up to target_total_w
         # Assume we scale RATION to height h_r, then h_v = h_r * 0.80
         # Width at that scale: w_r' = w_r * h_r / h_r_orig ; w_v' = w_v * (h_r*0.8) / h_v_orig
