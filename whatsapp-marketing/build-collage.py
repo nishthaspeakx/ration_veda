@@ -136,25 +136,31 @@ ch_y += 50
 
 # Product rows
 products = [
-    ('Guntur Chilli Powder', '100g', 'Rs 100', RED_SPICE),
-    ('Rajasthani Dhaniya Powder', '100g', 'Rs  80', (150, 200, 80)),
-    ('Rajapuri Haldi Powder', '100g', 'Rs 100', GOLD),
-    ('Punjabi Garam Masala', '100g', 'Rs 200', (180, 130, 70)),
+    ('Guntur Chilli Powder', 'Rs 100', RED_SPICE),
+    ('Rajasthani Dhaniya Powder', 'Rs  80', (150, 200, 80)),
+    ('Rajapuri Haldi Powder', 'Rs 100', GOLD),
+    ('Punjabi Garam Masala', 'Rs 200', (180, 130, 70)),
 ]
 
+# Sub-header: price clarification
+sub_txt = '(All prices per 100g pack)'
+sub_bbox = draw.textbbox((0, 0), sub_txt, font=font_sans(20))
+stw = sub_bbox[2] - sub_bbox[0]
+draw.text(((W - stw) // 2, ch_y - 8), sub_txt, font=font_sans(20), fill=(210, 210, 210))
+ch_y += 28
+
 row_h = 48
-for i, (name, size, price, accent) in enumerate(products):
+for i, (name, price, accent) in enumerate(products):
     ry = ch_y + i * row_h
     # Accent dot
     draw.ellipse([(CARD_MARGIN + 35, ry + 10), (CARD_MARGIN + 55, ry + 30)], fill=accent)
     # Name
     draw.text((CARD_MARGIN + 75, ry + 6), name, font=font_sans(25, bold=True), fill=CREAM)
-    # Size
-    draw.text((CARD_MARGIN + 75, ry + 6), name, font=font_sans(25, bold=True), fill=CREAM)
-    # Price (right-aligned)
-    price_bbox = draw.textbbox((0, 0), price, font=font_sans(28, bold=True))
+    # Price (right-aligned) — e.g. "Rs 100 / 100g"
+    full_price = f'{price} / 100g'
+    price_bbox = draw.textbbox((0, 0), full_price, font=font_sans(24, bold=True))
     pw = price_bbox[2] - price_bbox[0]
-    draw.text((W - CARD_MARGIN - 40 - pw, ry + 4), price, font=font_sans(28, bold=True), fill=GOLD)
+    draw.text((W - CARD_MARGIN - 40 - pw, ry + 7), full_price, font=font_sans(24, bold=True), fill=GOLD)
 
 y = CARD_Y + CARD_H + 40
 
